@@ -33,14 +33,7 @@ namespace LMS
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            LMSEntities1 context = new LMSEntities1();
-            Book book = new Book();
-            book.ISBN = bookisbntxt.Text;
-            book.Title = bookTtxt.Text;
-            book.Category = catecombo.SelectedText;
-            book.Quantity = Convert.ToInt32(quantitytxt.Text);
-            context.Books.Add(book);
-            context.SaveChanges();
+            
         }
 
 
@@ -74,6 +67,8 @@ namespace LMS
             context.SaveChanges();
             MessageBox.Show($"Book {removetxt.Text }Removed");
 
+            //var book = context.Books.Where(b => b.ISBN == risbntxt.Text).FirstOrDefault();
+
         }
         private void button7_Click(object sender, EventArgs e)
         {
@@ -97,6 +92,19 @@ namespace LMS
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            LMSEntities1 context = new LMSEntities1();
+            Book book = new Book();
+            book.ISBN = bookisbntxt.Text;
+            book.Title = bookTtxt.Text;
+            book.Category = catecombo.SelectedText;
+            book.Quantity = Convert.ToInt32(quantitytxt.Text);
+            context.Books.Add(book);
+            context.SaveChanges();
 
         }
     }
